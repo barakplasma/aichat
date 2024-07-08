@@ -1,0 +1,12 @@
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/rust:latest
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:ollama
+    command: sleep infinity
+
+  ollama:
+    ports:
+      - 11434:11434
+    image: ollama/ollama
